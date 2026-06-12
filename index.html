@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruthvik Mungamuri | AI Solutions & Generative AI Developer</title>
+<style>
+  :root{
+    --bg:#0b0d12;
+    --bg-soft:#11141c;
+    --card:#161a24;
+    --border:#262b38;
+    --text:#e7e9ee;
+    --muted:#9aa3b2;
+    --accent:#7c9cff;
+    --accent-2:#7cffd4;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .container{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,13,18,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;}
+  .logo{font-weight:700;font-size:1.1rem;letter-spacing:0.5px;}
+  .logo span{color:var(--accent);}
+  .nav-links{display:flex;gap:24px;font-size:0.95rem;}
+  .nav-links a{color:var(--muted);}
+  .nav-links a:hover{color:var(--text);text-decoration:none;}
+
+  .hero{
+    padding:90px 0 70px;
+    text-align:center;
+    background:radial-gradient(ellipse at top, rgba(124,156,255,0.12), transparent 60%);
+  }
+  .hero h1{
+    font-size:2.6rem;
+    font-weight:800;
+    margin-bottom:12px;
+    background:linear-gradient(90deg,var(--text),var(--accent) 60%, var(--accent-2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero .subtitle{
+    color:var(--muted);
+    font-size:1.05rem;
+    max-width:640px;
+    margin:0 auto 24px;
+  }
+  .avatar{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid var(--border);
+    box-shadow:0 0 0 8px rgba(124,156,255,0.08);
+    margin:0 auto 24px;
+    display:block;
+  }
+  .badges{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px;}
+  .badge{
+    border:1px solid var(--border);
+    background:var(--card);
+    padding:6px 14px;
+    border-radius:999px;
+    font-size:0.8rem;
+    color:var(--muted);
+  }
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    padding:11px 22px;
+    border-radius:10px;
+    font-weight:600;
+    font-size:0.9rem;
+    border:1px solid var(--border);
+  }
+  .btn-primary{
+    background:var(--accent);
+    color:#0b0d12;
+    border:none;
+  }
+  .btn-primary:hover{text-decoration:none;opacity:0.9;}
+  .btn-ghost{
+    color:var(--text);
+    background:transparent;
+  }
+  .btn-ghost:hover{text-decoration:none;border-color:var(--accent);}
+
+  section{padding:60px 0;}
+  .section-label{
+    color:var(--accent-2);
+    font-size:0.8rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:8px;
+  }
+  .section-title{font-size:1.8rem;font-weight:800;margin-bottom:30px;}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+    gap:20px;
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    transition:transform 0.15s ease, border-color 0.15s ease;
+  }
+  .card:hover{transform:translateY(-4px);border-color:var(--accent);}
+  .card-icon{font-size:1.6rem;margin-bottom:12px;}
+  .card h3{font-size:1.1rem;margin-bottom:8px;}
+  .card p{color:var(--muted);font-size:0.9rem;flex-grow:1;margin-bottom:16px;}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+  .tag{
+    font-size:0.72rem;
+    background:var(--bg-soft);
+    border:1px solid var(--border);
+    color:var(--muted);
+    padding:3px 9px;
+    border-radius:999px;
+  }
+  .card-link{font-size:0.88rem;font-weight:600;}
+
+  .timeline{border-left:2px solid var(--border);padding-left:28px;display:flex;flex-direction:column;gap:34px;}
+  .timeline-item{position:relative;}
+  .timeline-item::before{
+    content:"";
+    position:absolute;left:-34px;top:4px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 4px rgba(124,156,255,0.15);
+  }
+  .timeline-item h3{font-size:1.05rem;margin-bottom:2px;}
+  .timeline-item .meta{color:var(--accent-2);font-size:0.85rem;margin-bottom:10px;}
+  .timeline-item ul{padding-left:20px;color:var(--muted);font-size:0.92rem;display:flex;flex-direction:column;gap:6px;}
+
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+  }
+  .skill-card h4{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    color:var(--accent-2);
+    margin-bottom:14px;
+  }
+  .skill-card .tags{margin-bottom:0;}
+
+  .info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+  .info-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:22px;
+  }
+  .info-card h4{font-size:1rem;margin-bottom:6px;}
+  .info-card p{color:var(--muted);font-size:0.9rem;}
+
+  .contact{
+    text-align:center;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:50px 24px;
+  }
+  .contact h2{font-size:1.7rem;margin-bottom:10px;}
+  .contact p{color:var(--muted);margin-bottom:24px;}
+
+  footer{
+    text-align:center;
+    padding:30px 0;
+    color:var(--muted);
+    font-size:0.85rem;
+    border-top:1px solid var(--border);
+  }
+
+  @media (max-width:640px){
+    .hero h1{font-size:2rem;}
+    .nav-links{gap:14px;font-size:0.85rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Ruthvik<span>.ai</span></div>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <img class="avatar" src="https://ruthviksunny.github.io/ruthvik_github/images/ruth2.jpeg" alt="Ruthvik Mungamuri">
+    <h1>Ruthvik Mungamuri</h1>
+    <p class="subtitle">
+      AI Solutions Associate &amp; Generative AI Developer building LLM-powered applications,
+      RAG pipelines, and fine-tuning workflows — from prompt design to production deployment.
+    </p>
+    <div class="badges">
+      <span class="badge">Microsoft AI-102 Certified</span>
+      <span class="badge">Azure OpenAI</span>
+      <span class="badge">LoRA / QLoRA / DPO</span>
+      <span class="badge">RAG Systems</span>
+      <span class="badge">Power BI &amp; DAX</span>
+    </div>
+    <div class="cta-row">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="https://github.com/ruthviksunny" target="_blank" class="btn btn-ghost">GitHub Profile</a>
+      <a href="#contact" class="btn btn-ghost">Contact</a>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Selected Work</div>
+    <h2 class="section-title">Projects</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-icon">🔎</div>
+        <h3>Production RAG App</h3>
+        <p>An end-to-end Retrieval-Augmented Generation application built for production use — covering ingestion, chunking, vector retrieval, and grounded LLM responses.</p>
+        <div class="tags">
+          <span class="tag">RAG</span>
+          <span class="tag">Vector DB</span>
+          <span class="tag">LLM</span>
+          <span class="tag">Production Architecture</span>
+        </div>
+        <a class="card-link" href="https://ruthviksunny.github.io/production-rag-app/" target="_blank">View Project →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Local SLM Benchmarks</h3>
+        <p>Benchmarking small language models running locally — comparing latency, memory footprint, and output quality across quantization configurations and hardware setups.</p>
+        <div class="tags">
+          <span class="tag">SLM</span>
+          <span class="tag">Benchmarking</span>
+          <span class="tag">Quantization</span>
+          <span class="tag">Local Inference</span>
+        </div>
+        <a class="card-link" href="https://ruthviksunny.github.io/local-slm-benchmarks/" target="_blank">View Project →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🧩</div>
+        <h3>Multimodal Assistant</h3>
+        <p>An AI assistant capable of reasoning across text, image, and other modalities — exploring multimodal prompt design and unified interaction flows.</p>
+        <div class="tags">
+          <span class="tag">Multimodal</span>
+          <span class="tag">Conversational AI</span>
+          <span class="tag">Prompt Engineering</span>
+        </div>
+        <a class="card-link" href="https://ruthviksunny.github.io/multimodal-assistant/" target="_blank">View Project →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Fine-Tuning with LoRA &amp; DPO</h3>
+        <p>Efficient fine-tuning of a 7B model using LoRA and Direct Preference Optimization — improving structured JSON extraction accuracy by +41% while training only 0.3% of parameters.</p>
+        <div class="tags">
+          <span class="tag">LoRA</span>
+          <span class="tag">QLoRA</span>
+          <span class="tag">DPO</span>
+          <span class="tag">PEFT</span>
+        </div>
+        <a class="card-link" href="https://ruthviksunny.github.io/portfolio-lora-dpo/" target="_blank">View Project →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📡</div>
+        <h3>RAG Observability Lab</h3>
+        <p>Tooling for monitoring and evaluating RAG pipelines in production — tracking retrieval quality, latency, hallucination rate, and grounding accuracy over time.</p>
+        <div class="tags">
+          <span class="tag">Observability</span>
+          <span class="tag">Evaluation</span>
+          <span class="tag">RAG</span>
+          <span class="tag">Monitoring</span>
+        </div>
+        <a class="card-link" href="https://ruthviksunny.github.io/rag-observability-lab/" target="_blank">View Project →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Career</div>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <h3>Lead Generative AI Developer (Freelance)</h3>
+        <div class="meta">Global Impact Ministries — Awakening App · Jan 2026 – May 2026</div>
+        <ul>
+          <li>Led design and implementation of AI-powered experiences for the Awakening mobile application.</li>
+          <li>Built conversational "digital pastor" experiences for ministry leader interactions.</li>
+          <li>Developed personalized, scripture-based prayer and discipleship features.</li>
+          <li>Engineered prompt frameworks for theological consistency and response quality.</li>
+          <li>Drove AI architecture decisions, feature planning, and product enhancements.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Associate AI Solutions Developer</h3>
+        <div class="meta">Infinity Media International · Jan 2024 – Oct 2025</div>
+        <ul>
+          <li>Developed AI-assisted solutions for nonprofits, ministries, and community organizations.</li>
+          <li>Designed intelligent workflows automating repetitive operational tasks.</li>
+          <li>Built AI-powered tools generating insights and recommendations from organizational data.</li>
+          <li>Created analytics dashboards using Power BI, DAX, and Power Query.</li>
+          <li>Combined data analytics with Generative AI to deliver mission-driven solutions.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <h3>AI Solutions Associate</h3>
+        <div class="meta">TagHive Inc. · Mar 2023 – Dec 2023</div>
+        <ul>
+          <li>Contributed to AI-powered educational features within the Saathi learning platform.</li>
+          <li>Designed AI-assisted learning support delivering contextual help to students.</li>
+          <li>Worked cross-functionally to translate learning challenges into AI-driven solutions.</li>
+          <li>Performed prompt design, testing, validation, and optimization of AI responses.</li>
+          <li>Analyzed user feedback to improve relevance, usability, and engagement.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Toolbox</div>
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <h4>Artificial Intelligence</h4>
+        <div class="tags">
+          <span class="tag">Azure AI Services</span>
+          <span class="tag">Azure OpenAI</span>
+          <span class="tag">Generative AI</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">Prompt Engineering</span>
+          <span class="tag">AI Assistants</span>
+          <span class="tag">Conversational AI</span>
+          <span class="tag">AI Workflow Design</span>
+          <span class="tag">NLP</span>
+          <span class="tag">Responsible AI</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Data &amp; Analytics</h4>
+        <div class="tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">Power Query</span>
+          <span class="tag">DAX</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Data Modeling</span>
+          <span class="tag">ETL Pipelines</span>
+          <span class="tag">Business Intelligence</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Development</h4>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Fine-Tuning &amp; ML Engineering</h4>
+        <div class="tags">
+          <span class="tag">LoRA</span>
+          <span class="tag">QLoRA</span>
+          <span class="tag">DPO</span>
+          <span class="tag">HuggingFace PEFT</span>
+          <span class="tag">TRL</span>
+          <span class="tag">bitsandbytes</span>
+          <span class="tag">Weights &amp; Biases</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <div class="section-label">Background</div>
+    <h2 class="section-title">Certification &amp; Education</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>🏅 Microsoft Certified: Azure AI Engineer Associate (AI-102)</h4>
+        <p>Validated expertise in designing and implementing AI solutions using Azure Cognitive Services, Azure OpenAI, and related AI tooling.</p>
+        <p style="margin-top:10px;"><a href="https://learn.microsoft.com/en-us/users/ruthvikmungamuri-6830/credentials/374cbb103fa38a86" target="_blank">View Credential →</a></p>
+      </div>
+      <div class="info-card">
+        <h4>📘 Pursuing: Google Cloud Professional ML Engineer Certification</h4>
+        <p>Currently preparing for Google Cloud's Professional Machine Learning Engineer certification, expanding cloud ML expertise alongside Azure AI.</p>
+      </div>
+      <div class="info-card">
+        <h4>🎓 B.Tech, Electronics &amp; Communication Engineering</h4>
+        <p>CMR Technical Campus · 2018 – 2022</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact">
+      <h2>Let's build something with AI</h2>
+      <p>Open to roles and collaborations in Generative AI, LLM engineering, and AI solutions development.</p>
+      <div class="cta-row">
+        <a href="https://github.com/ruthviksunny" target="_blank" class="btn btn-primary">GitHub</a>
+        <a href="mailto:meetruthvik@gmail.com" class="btn btn-ghost">Email Me</a>
+        <a href="https://www.linkedin.com/in/ruthvik-mungamuri-b5039720b" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Ruthvik Mungamuri · Built with HTML &amp; CSS · Deployed on GitHub Pages
+  </div>
+</footer>
+
+</body>
+</html>
